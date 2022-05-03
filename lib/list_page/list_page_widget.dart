@@ -28,7 +28,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
               width: 50,
               height: 50,
               child: CircularProgressIndicator(
-                color: FlutterFlowTheme.primaryColor,
+                color: FlutterFlowTheme.of(context).primaryColor,
               ),
             ),
           );
@@ -44,12 +44,12 @@ class _ListPageWidgetState extends State<ListPageWidget> {
             automaticallyImplyLeading: false,
             title: Text(
               'CoinList',
-              style: FlutterFlowTheme.title1.override(
-                fontFamily: 'Lexend Deca',
-                color: Colors.white,
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-              ),
+              style: FlutterFlowTheme.of(context).title1.override(
+                    fontFamily: 'Lexend Deca',
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             actions: [],
             centerTitle: false,
@@ -70,7 +70,7 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                           width: 50,
                           height: 50,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.primaryColor,
+                            color: FlutterFlowTheme.of(context).primaryColor,
                           ),
                         ),
                       );
@@ -92,11 +92,11 @@ class _ListPageWidgetState extends State<ListPageWidget> {
                             children: [
                               Text(
                                 listViewCoinListRecord.name,
-                                style: FlutterFlowTheme.bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                               Text(
                                 listViewCoinListRecord.price,
-                                style: FlutterFlowTheme.bodyText1,
+                                style: FlutterFlowTheme.of(context).bodyText1,
                               ),
                             ],
                           ),

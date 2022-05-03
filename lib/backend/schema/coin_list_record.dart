@@ -32,6 +32,10 @@ abstract class CoinListRecord
       .snapshots()
       .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
 
+  static Future<CoinListRecord> getDocumentOnce(DocumentReference ref) => ref
+      .get()
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+
   CoinListRecord._();
   factory CoinListRecord([void Function(CoinListRecordBuilder) updates]) =
       _$CoinListRecord;

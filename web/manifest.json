@@ -1,6 +1,6 @@
 {
-    "name": "list_view_firebase",
-    "short_name": "list_view_firebase",
+    "name": "Flutter-ListView-Firebase",
+    "short_name": "Flutter-ListView-Firebase",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
