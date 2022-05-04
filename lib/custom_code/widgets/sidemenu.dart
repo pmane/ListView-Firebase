@@ -33,11 +33,10 @@ class _SidemenuState extends State<Sidemenu> {
     super.initState();
     for (var result in widget.items) {
       _result.add(SideMenuItem(
-        priority: 1,
+        priority: result.priority,
         title: result.title,
-        //title: "Test 1",
         onTap: () {
-          page.jumpToPage(1);
+          page.jumpToPage(result.priority);
         },
         icon: Icon(Icons.supervisor_account),
       ));
@@ -52,10 +51,6 @@ class _SidemenuState extends State<Sidemenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(''),
-        centerTitle: true,
-      ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
