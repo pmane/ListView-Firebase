@@ -78,6 +78,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'Chart': ChartWidget(),
       'friend_list': FriendListWidget(),
       'sidenav': SidenavWidget(),
+      'EmptyPage': EmptyPageWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
     return Scaffold(
@@ -119,6 +120,14 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.four_k_outlined,
+              size: 24,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.ac_unit,
               size: 24,
             ),
             label: 'Home',
