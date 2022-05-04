@@ -5,6 +5,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/coin_list_record.dart';
+import 'schema/friends_list_record.dart';
+import 'schema/sidenavigation_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -14,6 +16,8 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/coin_list_record.dart';
+export 'schema/friends_list_record.dart';
+export 'schema/sidenavigation_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord(
@@ -69,6 +73,69 @@ Future<FFFirestorePage<CoinListRecord>> queryCoinListRecordPage({
     queryCollectionPage(
       CoinListRecord.collection,
       CoinListRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query FriendsListRecords (as a Stream and as a Future).
+Stream<List<FriendsListRecord>> queryFriendsListRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(FriendsListRecord.collection, FriendsListRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<FriendsListRecord>> queryFriendsListRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        FriendsListRecord.collection, FriendsListRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<FFFirestorePage<FriendsListRecord>> queryFriendsListRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      FriendsListRecord.collection,
+      FriendsListRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query SidenavigationRecords (as a Stream and as a Future).
+Stream<List<SidenavigationRecord>> querySidenavigationRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(
+        SidenavigationRecord.collection, SidenavigationRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<SidenavigationRecord>> querySidenavigationRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        SidenavigationRecord.collection, SidenavigationRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<FFFirestorePage<SidenavigationRecord>> querySidenavigationRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      SidenavigationRecord.collection,
+      SidenavigationRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
