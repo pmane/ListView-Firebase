@@ -60,10 +60,10 @@ class _SidenavWidgetState extends State<SidenavWidget> {
                       snapshot.data;
                   return Container(
                     width: MediaQuery.of(context).size.width,
-                    height: 1000,
+                    height: MediaQuery.of(context).size.height * 1,
                     child: custom_widgets.Sidemenu(
                       width: MediaQuery.of(context).size.width,
-                      height: 1000,
+                      height: MediaQuery.of(context).size.height * 1,
                       items: sidemenuSidenavigationRecordList.toList(),
                     ),
                   );
