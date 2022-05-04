@@ -1,3 +1,4 @@
+import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../custom_code/widgets/index.dart' as custom_widgets;
@@ -40,13 +41,33 @@ class _EmptyPageWidgetState extends State<EmptyPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 1,
-                child: custom_widgets.FLBarChartWidget(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 1,
-                ),
+              StreamBuilder<List<CoinListRecord>>(
+                stream: queryCoinListRecord(),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: CircularProgressIndicator(
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                        ),
+                      ),
+                    );
+                  }
+                  List<CoinListRecord> fLBarChartWidgetCoinListRecordList =
+                      snapshot.data;
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 1,
+                    child: custom_widgets.FLBarChartWidget(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 1,
+                      bars: fLBarChartWidgetCoinListRecordList.toList(),
+                    ),
+                  );
+                },
               ),
             ],
           ),
